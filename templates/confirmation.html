@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation - FindMyDesk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/confirmation.css') }}">
+</head>
+<body>
+
+<div class="header">
+  <h1>FindMyDesk</h1>
+  <h2>Confirmation</h2>
+  <p>Please check-in to your reservation by scanning your seat's QR code upon arrival</p>
+</div>
+
+  <div class="confirmation-container">
+    <img src="static/images/checkmark.png" alt="People studying" width="400" style="display: block; margin: 0 auto;">
+    <h2>You have booked a desk</h2>
+    <div class="confirmation-details">
+      <div class="confirmation-details">
+        <p><strong>{{ start_time }} - {{ end_time }}</strong></p>
+        <p><strong>{{ library_name }} floor {{ floor_name }}</strong></p>
+        <p><strong> Seat {{ seat_number }}</strong></p>
+      </div>
+
+    </div>
+  </div>
+
+
+
+<div class="footer">
+  <!-- Redirect to the scan page on click -->
+  <button onclick="window.location.href='{{ url_for('scan') }}'" class="confirm-btn">Check-In</button>
+</div>
+
+</body>
+</html>

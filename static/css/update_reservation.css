@@ -1,0 +1,100 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+
+.header {
+  text-align: center;
+  padding: 8px 8px;
+  background-color: #5e4fbf; /* Primary theme color */
+  color: white;
+  border-bottom: 5px solid #6a5acd; /* Accent border */
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.header h2 {
+  font-size: 1em;
+  color: white; /* Maintain white for contrast */
+}
+
+.reservation-details {
+  background: white;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.reservation-details p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* .reservation-details label {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #333;
+} */
+
+#updated-end-time-label {
+  /* Custom styles for end time label */
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #5e4fbf;
+  font-weight:bold
+}
+
+
+form input[type="time"] {
+  width: calc(100% - 20px); /* Account for padding and border */
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px; /* Add some space after the input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.button-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.btn, .confirm-btn {
+  background-color: #5e4fbf;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+.btn:hover, .confirm-btn:hover {
+  background-color: #5144ab;
+}
+
+.confirm-btn {
+  background-color: #4CAF50;
+}
+
+.confirm-btn:hover {
+  background-color: #367c39;
+}

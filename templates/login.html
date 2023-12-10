@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindMyDesk - Create Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>FindMyDesk</h1>
+      <h2>Create Profile</h2>
+    </header>
+
+    <form class="form" action="{{ url_for('submit_form') }}" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter text">
+
+      <label for="uni">UNI:</label>
+      <input type="text" id="uni" name="uni" placeholder="Enter text">
+
+      <label for="classYear">Class Year:</label>
+      <input type="text" id="classYear" name="classYear" placeholder="Enter text">
+      
+        <!-- ... input fields ... -->
+        <button type="submit" class="save-button">Save</button>
+    </form>
+
+    <div id="locationModal" class="modal">
+      <div class="modal-content">
+        <h2>Allow "FindMyDesk" to use your location?</h2>
+        <p>Your location is used to improve search results</p>
+        <button id="denyLocation" class="button-deny">No</button>
+        <button id="allowLocation" class="button-allow">Yes</button>
+      </div>
+    </div>
+
+    <div id="notificationModal" class="modal">
+      <div class="modal-content">
+        <h2>Allow "FindMyDesk" to send notifications?</h2>
+        <p>Notifications may include alerts, sounds, and icon badges</p>
+        <button id="denyNotification" class="button-deny">No</button>
+        <button id="allowNotification" class="button-allow" >Yes</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+  // Correctly attach event listeners to all elements with class 'button-deny'
+  var denyButtons = document.getElementsByClassName('button-deny');
+  for (var i = 0; i < denyButtons.length; i++) {
+    denyButtons[i].addEventListener('click', function() {
+      console.log('User denied the request.');
+
+      // Hide the current modal
+      this.closest('.modal').style.display = 'none';
+
+      // Show the notification modal only if the location modal was the one being closed
+      if (this.id === 'denyLocation') {
+        var notificationModal = document.getElementById('notificationModal');
+        notificationModal.style.display = 'block';
+      }
+    });
+  }
+
+  // Event listener for denying notifications
+  document.getElementById('denyNotification').addEventListener('click', function () {
+    console.log('User denied the notifications.');
+
+    // Here you might want to redirect the user or close the modal
+    this.closest('.modal').style.display = 'none';
+    window.location.href = "{{ url_for('library_selection') }}";
+  });
+
+  // Event listener for allowing location
+  document.getElementById('allowLocation').addEventListener('click', function () {
+    // Hide the current modal
+    this.closest('.modal').style.display = 'none';
+
+    // Show the notification modal
+    var notificationModal = document.getElementById('notificationModal');
+    notificationModal.style.display = 'block';
+  });
+
+  // Add similar logic for 'allowNotification'
+  document.getElementById('allowNotification').addEventListener('click', function () {
+    // Hide the current modal
+    this.closest('.modal').style.display = 'none';
+
+    window.location.href = "{{ url_for('library_selection') }}";
+  });
+
+  
+  //Handle user information
+  document.querySelector('.form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the normal form submission
+
+    // Gather your form data
+    var formData = new FormData(this);
+
+    // Send the form data using AJAX
+    fetch('{{ url_for('submit_form') }}', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            // Show the modal
+            var modal = document.getElementById('locationModal');
+            modal.style.display = "block";
+        } else {
+            // Handle failure
+            alert('There was a problem with your submission.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>

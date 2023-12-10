@@ -1,0 +1,75 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* A light grey background to complement the purple */
+  margin: 0;
+  padding: 20px;
+  color: #333; /* Dark grey for text for better readability */
+}
+
+.header {
+  text-align: center;
+  padding: 8px 8px;
+  background-color: #5e4fbf; /* Primary theme color */
+  color: white;
+  border-bottom: 5px solid #6a5acd; /* Accent border */
+}
+
+.header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.header h2 {
+  font-size: 1em;
+  color: white; /* Maintain white for contrast */
+}
+
+.header p {
+  font-size: 0.5em;
+  margin-bottom: 0.5em;
+  color: #dcdcf5; /* Lighter shade for subtitle */
+}
+
+
+.floor-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This will center the floor options */
+  padding: 1em;
+}
+
+.floor-option {
+  text-decoration: none;
+  padding: 1em 2em; /* Adjust padding as needed */
+  margin: 0.5em 0; /* Maintain some space between options */
+  width: auto; /* Auto width based on content */
+  max-width: 100%; /* Maximum width percentage of their container */
+  text-align: center;
+  font-size: 1em; /* Adjust font size if needed */
+  border-radius: 8px;
+  background-color: white; /* White background for the buttons */
+  color: #5e4fbf; /* Text color taken from your theme */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+  border: 2px solid #5e4fbf; /* Border color taken from your theme */
+  transition: all 0.3s ease;
+}
+
+.floor-option:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Larger shadow for hover effect */
+  background-color: #e6e6ff; /* Light purple background on hover */
+}
+
+.floor-option.unavailable {
+  background-color: #eeeeee; /* Light grey for unavailable options */
+  color: #aaaaaa; /* Grey text for unavailable options */
+  border: 2px solid #cccccc; /* Grey border for unavailable options */
+  cursor: not-allowed;
+}
+
+
+.available-seats {
+  font-weight: bold;
+  display: block;
+  margin-top: 5px; /* Space between the floor number and available seats */
+  color: #333; /* Dark text for emphasis */
+}

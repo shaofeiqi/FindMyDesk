@@ -1,0 +1,104 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #e6e6ff, #f4f4f4); /* Gradient background */
+}
+
+.header {
+  text-align: center;
+  padding: 8px 8px;
+  background-color: #5e4fbf; /* Primary theme color */
+  color: white;
+  border-bottom: 5px solid #6a5acd; /* Accent border */
+}
+
+.header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.header h2 {
+  font-size: 1em;
+  color: white; /* Maintain white for contrast */
+}
+
+.header p {
+  font-size: 0.5em;
+  margin-bottom: 0.5em;
+  color: #dcdcf5; /* Lighter shade for subtitle */
+}
+
+
+.confirmation-details {
+  background: white;
+  margin: 40px auto; /* Increased top margin */
+  padding: 30px; /* More padding for a spacious look */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+  max-width: 600px;
+}
+
+.confirmation-details p {
+  font-size: 1.2em; /* Slightly larger font size */
+  color: #333; /* Darker color for better readability */
+  margin-bottom: 15px; /* More space between lines */
+}
+
+.button-container {
+  padding: 10px 20px; /* More vertical padding */
+  text-align: center;
+}
+
+.btn {
+  background-color: #5e4fbf;
+  color: white;
+  border: 2px solid transparent; /* Added border for more defined buttons */
+  padding: 15px 30px;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth transition for interactions */
+}
+
+.btn:hover {
+  background-color: #5144ab;
+  border-color: white; /* Border color change on hover */
+  transform: translateY(-2px); /* Slight lift */
+}
+
+.leave-btn {
+  background-color: #ff4136;
+}
+
+.leave-btn:hover {
+  background-color: #e82e20;
+  border-color: white;
+}
+
+/* Consider hiding the footer if it's not adding value or move the buttons out of it */
+.footer {
+  display: none;
+}
+
+#timer-container {
+  position: relative;
+  width: 200px; /* Same as SVG width */
+  height: 200px; /* Same as SVG height */
+  margin: 20px auto; /* Center the container */
+}
+
+#timer-svg {
+  transform: rotate(-90deg); /* Rotate so the stroke starts from the top */
+}
+
+#timer-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  color: #5144ab;
+}
+

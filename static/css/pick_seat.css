@@ -1,0 +1,88 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Light grey background */
+  margin: 0;
+  padding: 20px;
+  color: #333; /* Dark grey text for readability */
+}
+
+.header {
+  text-align: center;
+  padding: 8px 8px;
+  background-color: #5e4fbf; /* Primary theme color */
+  color: white;
+  border-bottom: 5px solid #6a5acd; /* Accent border */
+}
+
+.header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.header h2 {
+  font-size: 1em;
+  color: white; /* Maintain white for contrast */
+}
+
+.header p {
+  font-size: 0.5em;
+  margin-bottom: 0.5em;
+  color: #dcdcf5; /* Lighter shade for subtitle */
+}
+.map-container {
+  position: relative;
+  width: 100%; /* Make the map container responsive */
+  max-width: 800px; /* Maximum width */
+  margin: 20px auto; /* Center the container with margin */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+
+.map-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.seat {
+  width: 20px; /* Increase the size for better visibility */
+  height: 20px; /* Increase the size for better visibility */
+  background-color: #00ff00; /* Green for available seats */
+  border-radius: 50%; /* Make the seats circular */
+  cursor: pointer; /* Indicate the seats are clickable */
+  transition: transform 0.3s; /* Smooth transition for interaction */
+}
+
+.seat:hover {
+  transform: scale(1.1); /* Slightly enlarge seats on hover */
+}
+
+.seat.reserved {
+  background-color: #ff0000; /* Red for reserved seats */
+  cursor: not-allowed; /* Change cursor for reserved seats */
+}
+
+.seat.selected {
+  background-color: #4cbfe6; /* Blue for selected seats */
+}
+
+.reserve-btn {
+  display: block; /* Make the button visible */
+  width: auto;
+  padding: 15px 30px;
+  background-color: #6a5acd; /* Theme color for the button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 20px auto;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5px 0;
+  background: #5e4fbf; /* Theme color for footer */
+}

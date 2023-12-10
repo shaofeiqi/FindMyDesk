@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Confirmed - FindMyDesk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/confirmed.css') }}">
+</head>
+<body>
+
+<div class="header">
+  <h1>FindMyDesk</h1>
+  <h2>Confirmed</h2>
+</div>
+
+<div class="confirmation-message">
+  <img src="static/images/Confirmed.png" alt="Confirmation Submitted" width="400" style="display: block; margin: 0 auto;">
+  <p>You successfully updated the end time!</p>
+</div>
+
+<div class="actions">
+  <button onclick="window.history.back();" class="cancel-btn">Cancel</button>
+  <button onclick="location.href='{{ url_for('home') }}';" class="home-btn">Home</button>
+</div>
+
+<!-- <script src="{{ url_for('static', filename='js/confirmed.js') }}"></script> -->
+</body>
+</html>

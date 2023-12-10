@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  padding: 8px 8px;
+  background-color: #5e4fbf; /* Primary theme color */
+  color: white;
+  border-bottom: 5px solid #6a5acd; /* Accent border */
+}
+
+.header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.header h2 {
+  font-size: 1em;
+  color: white; /* Maintain white for contrast */
+}
+
+.confirmation-message {
+  margin: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-message p {
+  font-size: 18px;
+  color: #5e4fbf;
+  font-weight:bold
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.home-btn {
+  background-color: #6a5acd;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  width: 140px; /* Ensures buttons have the same width */
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover,
+.home-btn:hover {
+  background-color: #5e4fbf;
+}
+
+.cancel-btn {
+  background-color: #777; /* Different color for cancel */
+}
+
+.cancel-btn:hover {
+  background-color: #666;
+}

@@ -1,0 +1,108 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  padding-bottom: 80px; /* Add padding equal to or greater than the height of the footer */
+}
+
+.header {
+  text-align: center;
+  padding: 8px 8px;
+  background-color: #5e4fbf; /* Primary theme color */
+  color: white;
+  border-bottom: 5px solid #6a5acd; /* Accent border */
+}
+
+.header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.header h2 {
+  font-size: 1em;
+  color: white; /* Maintain white for contrast */
+}
+
+.header p {
+  font-size: 0.5em;
+  margin-bottom: 0.5em;
+  color: #dcdcf5; /* Lighter shade for subtitle */
+}
+
+
+/* .confirmation-container {
+  background: white;
+  max-width: 600px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  text-align: center;
+} */
+
+.confirmation-container {
+  background: white;
+  width: 90%; /* Adjust the width to your preference */
+  max-width: 600px; /* Keep the max-width to ensure it does not get too large on bigger screens */
+  margin: 20px auto 60px; /* Add bottom margin to push it above the fixed footer */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.confirmation-container img {
+  max-width: 100px; /* Adjust the width to your preference */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 20px auto; /* Center the image and add spacing */
+}
+
+.confirmation-container h2 {
+  color: #555; 
+  font-size: 1.5rem; /* Smaller size */
+  margin-bottom: 15px;
+}
+
+.confirmation-details p {
+  color: #4CAF50; 
+  font-size: 0.95rem; /* Smaller size */
+  line-height: 1.4;
+  margin-bottom: 10px;
+  font-weight:bold
+  text-align: center
+}
+
+.confirmation-details p strong {
+  color: #4CAF50; 
+  font-weight: bold;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #5e4fbf;
+  text-align: center;
+  padding: 15px 0;
+  z-index: 1000; /* Ensure the footer is above other elements */
+}
+
+.confirm-btn {
+  padding: 10px 25px;
+  font-size: 1rem;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+.confirm-btn:hover {
+  background-color: #367c39;
+}

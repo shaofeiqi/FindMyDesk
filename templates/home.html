@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindMyDesk Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+<div class="header">
+  <h1>FindMyDesk</h1>
+  <h2>Home</h2>
+</div>
+
+  <div id="timer-container">
+    <svg width="200" height="200" id="timer-svg">
+      <circle r="90" cx="100" cy="100" fill="transparent" stroke="#5144ab" stroke-width="10" />
+    </svg>
+    <div id="timer-display">
+      <span id="time">--:--</span>
+    </div>
+  </div>
+  
+<div class="confirmation-details">
+  <p><strong>Seat Number:</strong> <span id="seatNumber">{{seat_number}}</span></p>
+  <p><strong>Start time:</strong> <span id="currentTime">{{current_time}}</span></p>
+  <p><strong>End Time:</strong> <span id="endTime">{{end_time}}</span></p>
+</div>
+
+<div class="button-container">
+  <!-- <button id="friendsBtn" class="btn friends-btn">Update End Time</button> -->
+  <button onclick="window.location.href='/update-reservation';" class="btn">Update End Time</button>
+  <button onclick="window.location.href='/';" class="btn leave-btn">Leave Now</button>
+</div>
+
+<!-- <div id="extendOffer" class="notification-popup hidden">
+  <p>Do you want to renew your time?</p>
+  <button id="noBtn" class="btn">No</button>
+  <button onclick="window.location.href='/update-reservation';" class="btn">Yes</button>
+</div>
+ -->
+  <script>
+    function setupTimer() {
+      const endTimeInput = "{{ end_time }}";
+      const currentDate = new Date();
+      const currentDateString = currentDate.toISOString().split('T')[0];
+      const endTimeString = currentDateString + 'T' + endTimeInput + ':00';
+      const endTime = new Date(endTimeString);
+
+      // Check if end time is earlier than current time, indicating it's for the next day
+      if (endTime.getTime() < currentDate.getTime()) {
+        endTime.setDate(endTime.getDate() + 1);
+      }
+
+      const timerCircle = document.querySelector('#timer-svg circle');
+      const circumference = 2 * Math.PI * timerCircle.r.baseVal.value;
+      timerCircle.style.strokeDasharray = `${circumference}`;
+      timerCircle.style.strokeDashoffset = circumference;
+
+      function updateTimer() {
+        const now = new Date().getTime();
+        let remainingTime = endTime.getTime() - now;
+
+        if (remainingTime < 0) {
+          clearInterval(timerInterval);
+          document.getElementById('time').textContent = '00:00';
+          return;
+        }
+
+        const minutes = Math.floor(remainingTime / (1000 * 60));
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+        document.getElementById('time').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        const offset = circumference - (remainingTime / (endTime.getTime() - currentDate.getTime())) * circumference;
+        timerCircle.style.strokeDashoffset = offset;
+      }
+
+      const timerInterval = setInterval(updateTimer, 1000);
+      updateTimer();
+    }
+
+    setupTimer();
+  </script>
+
+
+
+
+<!-- <script src="{{ url_for('static', filename='js/home.js') }}"></script> -->
+</body>
+</html>

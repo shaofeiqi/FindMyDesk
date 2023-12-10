@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ library_name }} Floor Capacity - FindMyDesk</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/floor_capacity.css') }}">
+</head>
+<body>
+
+<div class="header">
+  <h1>FindMyDesk</h1>
+  <h2>{{ library_name }} Floor Capacity</h2>
+  <p>Pick which floor you want to work in:</p>
+</div>
+
+<!-- <div class="floor-selection">
+  {% for floor, num in floors.items() %}
+    <a href="{{ url_for('pick_seat', library_name=library_name, floor_number=floor) }}" class="floor-option {{ 'unavailable' if num == 0 }}">
+      Floor {{ floor }}: {{ num }} available seats
+    </a>
+  {% endfor %}
+</div> -->
+  <div class="floor-selection">
+    {% for floor, num in floors.items() %}
+      <a href="{{ url_for('pick_seat', library_name=library_name, floor_number=floor) }}" class="floor-option {{ 'unavailable' if num == 0 }}">
+        Floor {{ floor }}: <span class="available-seats">{{ num }} available seats</span>
+      </a>
+    {% endfor %}
+  </div>
+
+
+</body>
+</html>

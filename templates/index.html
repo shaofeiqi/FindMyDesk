@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FindMyDesk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h2><center>FindMyDesk</center></h2>
+    <!-- Image of people studying -->
+    <img src="static/images/main_page.jpeg" alt="People studying" width="400" style="display: block; margin: 0 auto;">
+    <h1 style="text-align: center; color: #6a5acd; font-family: 'Roboto', sans-serif;">Where your learning begins, <br> <em>your desk awaits </em> </h1>
+  </header>
+<form action="{{ url_for('login') }}" method="get">
+  <button type="submit" class="start-searching-button" style="margin: 0 auto; display: block;">Start Searching</button>
+</form>
+
+<p style="text-align: center;">&copy; 2023 FindMyDesk. All rights reserved.</p>  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Replit badge script -->
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>

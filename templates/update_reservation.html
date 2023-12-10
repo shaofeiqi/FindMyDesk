@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Reservation - FindMyDesk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/update_reservation.css') }}">
+</head>
+<body>
+
+<div class="header">
+  <h1>FindMyDesk</h1>
+  <h2>Update Reservation</h2>
+</div>
+
+<form action="{{ url_for('confirmed') }}" method="post">
+  <div class="reservation-details">
+    <p><strong>Seat Number:</strong> <span id="seatNumber">{{ seat_number }}</span></p>
+    <p><strong>Current End Time:</strong> <span id="currentEndTime">{{ current_end_time }}</span></p>
+
+    <label for="updatedEndTime" id="updated-end-time-label"><strong>Updated End Time:</strong></label>
+    <input type="time" id="updatedEndTime" name="updated_end_time" required>
+  </div>
+
+  <div class="button-container">
+    <button type="button" onclick="window.history.back();" class="btn">Back</button>
+    <button type="submit" class="confirm-btn">Confirm</button>
+  </div>
+</form>
+
+</body>
+</html>

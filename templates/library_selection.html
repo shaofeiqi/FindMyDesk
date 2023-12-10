@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FindMyDesk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/library_selection.css') }}">
+</head>
+<body>
+
+<div class="header">
+  <h1>FindMyDesk</h1>
+  <h2>Select your library</h2>
+  <p>Choose your favorite!</p>
+</div>
+
+<div class="library-selection">
+  {% for library in libraries %}
+    <div class="library" data-library="{{ library.name}}">
+      <img src="{{ url_for('static', filename='images/' ~ (library.name | lower) ~ '.jpeg') }}" alt="{{ library.name }} Library">
+      <p>{{ library.name }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+  <div class="unfold-container">
+    <button id="unfoldButton" class="unfold-button">+</button>
+    <p class="friends-study-notice">see where your friends are studying!</p>
+  </div>
+  
+  <!-- Friends List Panel -->
+  <div id="friendsListPanel" class="friends-list-panel">
+    <h3>Friends:</h3>
+    <p>Arnesa Novaj @ Avery</p>
+    <p>Khadijah Rimawi @ Diana</p>
+    <p>Fatima Awad @ Home</p>
+    <!-- Add more friends as needed -->
+  </div>
+  
+  <div class="footer">
+    <!-- Changed class to id -->
+    <button id="startSearchBtn" class="start-btn" disabled>Start Searching</button>
+  </div>
+
+  <script>
+  // Function to toggle the friends list panel
+  function toggleFriendsList() {
+    var panel = document.getElementById('friendsListPanel');
+    panel.classList.toggle('show');
+  }
+
+  // Event listener for the unfold/fold button
+  document.getElementById('unfoldButton').addEventListener('click', toggleFriendsList);
+
+  // Get all library options
+  var libraryOptions = document.querySelectorAll('.library');
+  var selectedLibrary = null;
+
+  // Function to handle clicking on a library option
+  libraryOptions.forEach(function(option) {
+    option.addEventListener('click', function() {
+      // Remove 'selected' class from all options
+      libraryOptions.forEach(function(opt) { opt.classList.remove('selected'); });
+
+      // Add 'selected' class to the clicked option
+      this.classList.add('selected');
+
+      // Enable the start search button
+      document.getElementById('startSearchBtn').disabled = false;
+
+      // Set the selected library
+      selectedLibrary = this.getAttribute('data-library');
+    });
+  });
+
+    document.getElementById('startSearchBtn').addEventListener('click', function() {
+      if (selectedLibrary) {
+        window.location.href = '/floor-capacity/' + selectedLibrary;
+      }
+    });
+  </script>
+
+</body>
+</html>

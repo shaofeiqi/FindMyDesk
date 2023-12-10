@@ -1,0 +1,148 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Light grey background */
+  margin: 0;
+  padding: 20px;
+  color: #333; /* Dark grey text for readability */
+}
+
+.header {
+  text-align: center;
+  padding: 8px 8px;
+  background-color: #5e4fbf; /* Primary theme color */
+  color: white;
+  border-bottom: 5px solid #6a5acd; /* Accent border */
+}
+
+.header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.header h2 {
+  font-size: 1em;
+  color: white; /* Maintain white for contrast */
+}
+
+.header p {
+  font-size: 0.5em;
+  margin-bottom: 0.5em;
+  color: #dcdcf5; /* Lighter shade for subtitle */
+}
+
+.library-selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.library {
+  flex-basis: 45%; /* Adjust the width as needed for your layout */
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Adds space between the rows */
+  text-align: center; /* Centers the text underneath the image */
+}
+
+.library img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains aspect ratio */
+  max-height: 200px; /* Limits the image height, adjust as needed */
+  object-fit: contain; /* Ensures the image is fully visible, padded by whitespace if necessary */
+  border: 1px solid #ccc; /* Adds a border around the image */
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2); /* Optional: Adds a subtle shadow for depth */
+  margin-bottom: 8px; /* Space between the image and the caption */
+}
+
+.footer {
+  text-align: center; /* Centers the footer content */
+}
+
+.start-btn {
+  background-color: #6a5acd; /* Or any color you prefer */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px; /* Adjust size as needed */
+  margin-top: 20px;
+}
+
+/* Container for the unfold button and the attached text */
+.unfold-container {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  z-index: 11;
+  text-align: center; /* Center the text and button if desired */
+}
+
+/* Styling for the notice text */
+.friends-study-notice {
+  margin-bottom: 5px; /* Spacing between text and button */
+  color: #6a5acd; /* Match the button color or choose another */
+  /* Additional styling as needed */
+}
+
+/* Positioning and styling for the fold/unfold button */
+.unfold-button {
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px; /* Size of the button */
+  height: 50px; /* Size of the button */
+  font-size: 24px;
+  cursor: pointer;
+  display: inline-block; /* Allows text and button to align nicely */
+}
+
+/* Initial style for the friends list panel (hidden) */
+.friends-list-panel {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 10;
+  padding: 20px;
+  box-shadow: 0 -5px 10px rgba(0,0,0,0.3);
+}
+
+/* When panel is visible */
+.friends-list-panel.show {
+  display: block;
+}
+
+.library {
+  /* Styles for the library option */
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.library.selected {
+  /* Styles for when a library is selected */
+  border-color: #6a5acd;
+  background-color: #e0e0ff;
+}
+
+#start-btn:disabled {
+  /* Styles for the disabled state of the button */
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#start-btn {
+  /* Additional styles for the enabled state of the button */
+  background-color: #6a5acd;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

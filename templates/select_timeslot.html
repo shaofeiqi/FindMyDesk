@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Timeslot - FindMyDesk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/select_timeslot.css') }}">
+</head>
+<body>
+  
+  <div class="header">
+    <h1>FindMyDesk</h1>
+    <h2>Select Timeslot</h2>
+    <p>You may only reserve a start time up to 30 minutes ahead of time</p>
+  </div>
+
+  <form id="reservation-form" action="{{ url_for('confirm_reservation')}}" method="post">
+    <label for="start-time" id="start-time-label">Start Time:</label>
+    <input type="time" id="start-time" name="start_time" required>
+
+    
+    <label for="end-time" id="end-time-label">End Time:</label>
+    <input type="time" id="end-time" name="end_time" required>
+
+    <div class="button-container">
+        <button type="button" onclick="window.history.back();" class="back-btn">Back</button>
+        <!-- Pass the variables as arguments to the confirmSubmission() function -->
+        <button type="button" onclick="confirmSubmission('{{ library_name }}', '{{ floor_name }}', '{{ seat_id }}')" class="select-btn">Select</button>
+    </div>
+  </form>
+
+  <script>
+  function confirmSubmission(libraryName, floorName, seatId) {
+    event.preventDefault();
+    
+    // Get the values from the form
+    var startTime = document.getElementById('start-time').value;
+    var endTime = document.getElementById('end-time').value;
+
+    if (startTime >= endTime){
+      alert("Please select a valid start and end time.");
+    }else{
+      // Construct the confirmation message
+      var message = "You are about to reserve the following:\n\n" +
+                    "Library: " + libraryName + "\n" +
+                    "Floor: " + floorName + "\n" +
+                    "Seat: " + seatId + "\n" +
+                    "Start Time: " + startTime + "\n" +
+                    "End Time: " + endTime + "\n\n" +
+                    "Are you sure you want to submit this reservation?";
+
+      // Display the confirmation dialog
+      if (confirm(message)) {
+        // If the user clicked "OK", send a POST method to the server
+        const form = new FormData()
+        form.append('library_name', libraryName)
+        form.append('floor_name', floorName)
+        form.append('seat_id', seatId)
+        form.append('start_time', startTime)
+        form.append('end_time', endTime)
+        
+        fetch('{{ url_for('confirm_reservation') }}', {
+          method: 'POST',
+          body: form
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/confirmation';
+          }
+        })
+        .catch(error => {
+          alert('Error:', error);
+        });
+      }
+    }
+  }
+  </script>
+
+
+</body>
+</html>
